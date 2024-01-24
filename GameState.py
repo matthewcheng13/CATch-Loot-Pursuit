@@ -7,3 +7,6 @@ class GameState(Enum):
     WORLD = 3
     LEVEL_OPTIONS = 4
     LEVEL = 5
+    COLLECTION = 6
+    ACHIEVEMENTS = 7
+    CAT = 8

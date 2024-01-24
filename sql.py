@@ -35,3 +35,12 @@ def verify_user(username, password):
 
     conn.close()
     return success
+
+def get_unlocked_cats(username):
+    return True
+
+def get_cat(cat):
+    return True
+
+def get_achievments(username):
+    return True

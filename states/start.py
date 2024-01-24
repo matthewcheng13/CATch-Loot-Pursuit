@@ -7,7 +7,8 @@ def start_screen(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
     BLACK = (0, 0, 0)
 
     # Fonts
-    font = pygame.font.Font(None, 36)
+    fonts = pygame.font.Font(None, 36)
+    fontl = pygame.font.Font(None, 72)
 
     # Buttons
     login_button = pygame.Rect(300, 300, 200, 50)
@@ -34,15 +35,20 @@ def start_screen(screen, SCREEN_WIDTH, SCREEN_HEIGHT):
                     pygame.quit()
         screen.fill(WHITE)
 
+        # Draw text
+        text = fontl.render("CATch, Loot: PURRsuit", True, (0,0,0))
+        text_rect = text.get_rect(center=(SCREEN_WIDTH // 2, 50))
+        screen.blit(text, text_rect)
+
         # Draw buttons
         pygame.draw.rect(screen, BLACK, login_button)
         pygame.draw.rect(screen, BLACK, register_button)
-        login_text = font.render("Login", True, WHITE)
-        register_text = font.render("Register", True, WHITE)
-        screen.blit(login_text, (login_button.x + 20, login_button.y + 10))
-        screen.blit(register_text, (register_button.x + 10, register_button.y + 10))
+        login_text = fonts.render("Login", True, WHITE)
+        register_text = fonts.render("Register", True, WHITE)
+        screen.blit(login_text, (login_button.x + 63, login_button.y + 10))
+        screen.blit(register_text, (register_button.x + 50, register_button.y + 10))
         pygame.draw.rect(screen, BLACK, quit_button)
-        quit_text = font.render("Quit", True, WHITE)
+        quit_text = fonts.render("Quit", True, WHITE)
         screen.blit(quit_text, (quit_button.x + 20, quit_button.y + 10))
 
         pygame.display.flip()

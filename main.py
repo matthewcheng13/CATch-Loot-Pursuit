@@ -3,6 +3,9 @@ import sqlite3
 from GameState import GameState
 from states.start import start_screen
 from states.menu import menu_screen
+from states.collection import collection_screen
+from states.cat import cat_screen
+from states.achievements import achievements_screen
 
 pygame.init()
 
@@ -12,11 +15,12 @@ screen_height = 600
 
 # create game window
 screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption("CATch, Loot: Pursuit")
+pygame.display.set_caption("CATch, Loot: PURRsuit")
 
 running = True
 current_state = GameState.START
 user = None
+cat = None
 
 while running:
     for event in pygame.event.get():
@@ -36,6 +40,14 @@ while running:
             current_state = menu_screen(screen, user, screen_width, screen_height)
             if current_state == GameState.START:
                 user = None
+    elif current_state == GameState.COLLECTION:
+        current_state,cat = collection_screen(screen, user, screen_width, screen_height)
+        if current_state == GameState.MENU:
+            cat = None
+    elif current_state == GameState.CAT:
+        current_state = cat_screen(screen, cat, screen_width, screen_height)
+    elif current_state == GameState.ACHIEVEMENTS:
+        current_state == achievements_screen(screen, user, screen_width, screen_height)
     elif current_state == GameState.WORLDS:
         # Handle world selection screen
         # Transition to WORLD based on user selection

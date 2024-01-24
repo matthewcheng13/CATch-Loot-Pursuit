@@ -1,7 +1,7 @@
 import pygame
 from GameState import GameState
 
-def menu_screen(screen, username, SCREEN_WIDTH, SCREEN_HEIGHT):
+def collection_screen(screen, user, SCREEN_WIDTH, SCREEN_HEIGHT):
     WHITE = (255, 255, 255)
     BLACK = (0, 0, 0)
 
